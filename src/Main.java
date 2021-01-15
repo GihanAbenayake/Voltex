@@ -2,10 +2,6 @@ import Controllers.CombatController;
 import Controllers.FleetController;
 import Controllers.UnitController;
 import Controllers.VisualController;
-import Units.Humanity.Bombers.BO_ZweiHandler;
-import Units.Humanity.Fighters.FI_Rapier;
-import Units.Weapons.Light_AutoCannon;
-import Units.Weapons.Swordfish_Light_Bomb;
 
 public class Main {
     public static void main(String args[]){
@@ -21,7 +17,7 @@ public class Main {
         FleCont.GenerateFighterFleet("AllyFleet",5);
         FleCont.getFleetList().get(0).setAlly();
         //Generate a fleet of five Zweihandlers
-        FleCont.GenerateBomberFleet("Enemy Fleet",5);
+        FleCont.GenerateCorvetteFleet("Enemy Fleet",5);
         FleCont.getFleetList().get(1).setEnemy();
 
         CombatController ConCont = new CombatController(VisCont);
@@ -30,11 +26,13 @@ public class Main {
 
         ConCont.setEnemyFleet(FleCont.getFleetList().get(1));
 
-        ConCont.generateISC();
+        ConCont.generateSubControllers();
 
         //Init roll
         ConCont.getInitiativeController().rollInitiative();
 
+        //Turn Start
+        ConCont.getTurnController().CombatStart();
 
 
     }

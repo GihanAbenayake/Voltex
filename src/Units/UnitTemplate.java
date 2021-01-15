@@ -46,10 +46,16 @@ public class UnitTemplate {
 
     //Combat variables to store as needed
     //Range area that the ship is currently at
-    private String currentRange;
+    private int currentRange;
 
     //Initiative that the ship has rolled
     private int combatInitiative;
+
+    //Movement action that is qued
+    private String MovementAction;
+
+    //Combat Action that is qued;
+    private String CombatAction;
 
     //Sets status as an Ally (0 = Enemy, 1 = Player)
     private int Ally;
@@ -69,7 +75,7 @@ public class UnitTemplate {
     public String ReadableString(){
 
         String result = "Name: " + Name + " " +
-                "\tType: " + Type.GetType() + " " +
+                "\tType: " + Type.getType() + " " +
                 "\t\tDurability: " + CurrentDurability + " " +
                 "\t\tArmor: " + CurrentArmor + " ";
 
@@ -79,7 +85,7 @@ public class UnitTemplate {
     public String toString(){
         return "\nUnit Id: " + ID + " " +
                 "Unit Name: " + Name + " " +
-                "Unit Type: " + Type.GetType() + " " +
+                "Unit Type: " + Type.getType() + " " +
                 "Unit Durability: " + CurrentDurability + " " +
                 "Unit Armor: " + CurrentArmor + " ";
     }
@@ -167,11 +173,11 @@ public class UnitTemplate {
         UnitDesc = unitDesc;
     }
 
-    public String getCurrentRange() {
+    public int getCurrentRange() {
         return currentRange;
     }
 
-    public void setCurrentRange(String currentRange) {
+    public void setCurrentRange(int currentRange) {
         this.currentRange = currentRange;
     }
 
@@ -189,5 +195,25 @@ public class UnitTemplate {
 
     public void setCombatInitiative(int combatInitiative) {
         this.combatInitiative = combatInitiative;
+    }
+
+    public String getMovementAction() {
+        return MovementAction;
+    }
+
+    public void setMovementAction(String movementAction) {
+        MovementAction = movementAction;
+    }
+
+    public String getCombatAction() {
+        return CombatAction;
+    }
+
+    public void setCombatAction(String combatAction) {
+        CombatAction = combatAction;
+    }
+
+    public TypeTemplate getType(){
+        return Type;
     }
 }

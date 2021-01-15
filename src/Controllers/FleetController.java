@@ -2,6 +2,7 @@ package Controllers;
 
 import Units.Fleet;
 import Units.Humanity.Bombers.BO_ZweiHandler;
+import Units.Humanity.Corvettes.CO_Longsword;
 import Units.Humanity.Fighters.FI_Rapier;
 import Units.UnitTemplate;
 
@@ -41,7 +42,22 @@ public class FleetController {
       FleetList.add(FighterFleet);
 
       //Debug Text
-      System.out.println("Generated a ZweiHandler fleet called " + FleetName + " that contains " + RequiredFighterAmount + " Rapiers.");
+      System.out.println("Generated a ZweiHandler fleet called " + FleetName + " that contains " + RequiredFighterAmount + " Zweihandlers.");
+   }
+
+   public void GenerateCorvetteFleet(String FleetName,int RequiredFighterAmount){
+
+      UnitTemplate[] NewCorvetteFleet = new UnitTemplate[RequiredFighterAmount];
+
+      for(int x = 0;x < RequiredFighterAmount; x++){
+         NewCorvetteFleet[x] = new CO_Longsword("Longsword " + x,"Longsword " +x);
+      }
+
+      Fleet CorvetteFleet = new Fleet(FleetName,NewCorvetteFleet);
+      FleetList.add(CorvetteFleet);
+
+      //Debug Text
+      System.out.println("Generated a Longsword fleet called " + FleetName + " that contains " + RequiredFighterAmount + " Longsword.");
    }
 
    public void GenerateCustomFleet(String FleetName, UnitTemplate[] FleetShips){
