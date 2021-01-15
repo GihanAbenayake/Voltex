@@ -1,27 +1,26 @@
 package ButtonTests;
 
-import Dice.D20;
-import Dice.DiceTemplate;
+import Units.Humanity.Bombers.BO_ZweiHandler;
+import Units.Humanity.Fighters.FI_Rapier;
+import Visuals.MainFrame;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class DiceTest implements MouseListener {
-
+public class ZweIHandlerInfo implements MouseListener {
     JTextArea Event;
-    public DiceTest(JTextArea EventLog){
+    MainFrame FFrame;
+    public ZweIHandlerInfo(JTextArea EventLog, MainFrame Frame){
         Event = EventLog;
+        FFrame = Frame;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        DiceTemplate D20 = new D20();
-
-        Event.append("\n\n" + D20.Roll());
-        Event.append("\n\n" + D20.RollMultipleCombinedResults(4));
-
-
+        BO_ZweiHandler TestZwei = new BO_ZweiHandler("TestingZwei","TestZwei");
+        FFrame.getEventLog().setText(TestZwei.toString());
+        FFrame.validate();
     }
 
     @Override
@@ -44,3 +43,4 @@ public class DiceTest implements MouseListener {
 
     }
 }
+

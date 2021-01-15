@@ -1,27 +1,26 @@
 package ButtonTests;
 
-import Dice.D20;
-import Dice.DiceTemplate;
+import Units.Humanity.Fighters.FI_Rapier;
+import Visuals.MainFrame;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class DiceTest implements MouseListener {
-
+public class RapierInfo implements MouseListener {
     JTextArea Event;
-    public DiceTest(JTextArea EventLog){
+    MainFrame FFrame;
+    public RapierInfo(JTextArea EventLog, MainFrame Frame){
         Event = EventLog;
+        FFrame = Frame;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        DiceTemplate D20 = new D20();
-
-        Event.append("\n\n" + D20.Roll());
-        Event.append("\n\n" + D20.RollMultipleCombinedResults(4));
-
-
+        FI_Rapier TestRapier = new FI_Rapier("TestingRapier","Testing Rapier");
+        FFrame.getEventLog().setText(TestRapier.toString());
+        FFrame.validate();
     }
 
     @Override

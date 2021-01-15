@@ -1,8 +1,8 @@
 package Units.UnitTypes;
 
-public class Type {
+public class TypeTemplate {
     private String type;
-    public Type(){
+    public TypeTemplate(){
     }
 
     public void setType(String type){

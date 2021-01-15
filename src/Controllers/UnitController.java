@@ -1,10 +1,9 @@
-package Units;
+package Controllers;
 
-import Units.Unit;
-import Units.Humanity.F_Rapier;
+import Units.Humanity.Fighters.FI_Rapier;
 
 public class UnitController {
-    F_Rapier Rapier = new F_Rapier("Rapier_1", "Rapier 1");
+    FI_Rapier Rapier = new FI_Rapier("Rapier_1", "Rapier 1");
 
     public void Initalise(){
        // Test Rapier

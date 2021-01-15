@@ -1,20 +1,17 @@
 package Visuals;
 
-import ButtonTests.DiceTest;
 import ButtonTests.EventLogCleaner;
-import ButtonTests.RapierInfoAdaptor;
+import ButtonTests.RapierInfo;
+import ButtonTests.ZweIHandlerInfo;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.event.MouseInputListener;
 import java.awt.*;
 
 public class MainFrame extends JFrame {
-    private JFrame MainFrame = new JFrame("Voltex Test MainFrame");
+    private final JFrame MainFrame = new JFrame("Voltex Test MainFrame");
     private JPanel MainPanel1;
     private JPanel MenuPanel;
     private JTextArea EventLog;
-    private String TurnSeperator ="===============================================================================================================================================";
     private Container cont;
 
     //JButtons
@@ -32,7 +29,8 @@ public class MainFrame extends JFrame {
     //Creation and parameters of the EventLog
     public void EventLogCreation(JPanel panel){
         //EventLog and Turn Separator initialisation
-        EventLog = new JTextArea(TurnSeperator);
+        String turnSeparator = "===============================================================================================================================================";
+        EventLog = new JTextArea(turnSeparator);
 
         //Allows Line wrapping
         EventLog.setLineWrap(true);
@@ -114,17 +112,13 @@ public class MainFrame extends JFrame {
         Button9.setVisible(false);
         Button10.setVisible(false);
 
-        // Mouse Listener tests
-/*
-        Button3.setText("Rapier Information display");
-        Button3.addMouseListener(new RapierInfoAdaptor(EventLog,Button3));
-        Button8.setText("Dice Test");
-        Button8.addMouseListener(new DiceTest(EventLog));
-
- */
-
-
-
+        //Testing for Button info
+        /*
+        Button3.setText("Rapier Info");
+        Button8.setText("ZweiHandler Info");
+        Button3.addMouseListener(new RapierInfo(this.getEventLog(),this));
+        Button8.addMouseListener(new ZweIHandlerInfo(this.getEventLog(),this));
+         */
 
         //Debug Borders for Panels
         /*
@@ -164,5 +158,9 @@ public class MainFrame extends JFrame {
         cont.setVisible(true);
         cont.validate();
 
+    }
+
+    public JTextArea getEventLog(){
+        return EventLog;
     }
 }

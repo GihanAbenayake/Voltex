@@ -6,8 +6,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class EventLogCleaner implements MouseListener {
-    private JTextArea Event;
-    private Container Container;
+    private final JTextArea Event;
+    private final Container Container;
     public  EventLogCleaner(JTextArea EventLog, Container cont){
         Event = EventLog;
         Container = cont;
@@ -32,8 +32,6 @@ public class EventLogCleaner implements MouseListener {
         if(Event.getLineCount() >= 29){
             Event.setText(" Log was Cleared");
             Container.validate();
-        }else{
-
         }
 
     }
@@ -43,8 +41,6 @@ public class EventLogCleaner implements MouseListener {
         if(Event.getLineCount() >= 29){
             Event.setText(" Log was Cleared");
             Container.validate();
-        }else{
-
         }
 
     }

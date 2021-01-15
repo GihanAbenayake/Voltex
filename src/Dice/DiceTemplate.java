@@ -2,33 +2,38 @@ package Dice;
 
 import java.util.Random;
 
-public class Dice {
+public class DiceTemplate {
     private int faces;
 
-    public Dice(){
+    public DiceTemplate(){
+    }
+
+    public String GetDice(){
+        String x = "D"+faces;
+        return x;
     }
 
     public int Roll(){
         Random Rand = new Random();
         int x = Rand.nextInt(faces) + 1;
-        System.out.println(x);
+        //Roll Debug
+        //System.out.println(x);
         return x;
     }
 
-    public int RollMultipleResults(int[] NumberofDiceRolled){
+    public int RollMultipleResults(int[] NumberOfDiceRolled){
 
         int TotalResult = 0;
-        for(int x = 0; x < NumberofDiceRolled.length; x++){
-            int rolled = x;
-            TotalResult = TotalResult + rolled;
+        for(int x = 0; x < NumberOfDiceRolled.length; x++){
+            TotalResult = TotalResult + x;
         }
         return TotalResult;
     }
 
-    public int[] RollMultiple(int NumberofDiceRolled){
+    public int[] RollMultiple(int NumberOfDiceRolled){
         Random Rand = new Random();
-        int[] DiceArray = new int[NumberofDiceRolled];
-        for(int x = 0; x < NumberofDiceRolled;x++){
+        int[] DiceArray = new int[NumberOfDiceRolled];
+        for(int x = 0; x < NumberOfDiceRolled;x++){
             int roll = Rand.nextInt(faces) + 1;
             DiceArray[x] = roll;
         }
@@ -39,8 +44,8 @@ public class Dice {
         return DiceArray;
     }
 
-    public int RollMultipleCombinedResults(int NumberofDiceRolled){
-       return RollMultipleResults(RollMultiple(NumberofDiceRolled));
+    public int RollMultipleCombinedResults(int NumberOfDiceRolled){
+       return RollMultipleResults(RollMultiple(NumberOfDiceRolled));
 
     }
 
