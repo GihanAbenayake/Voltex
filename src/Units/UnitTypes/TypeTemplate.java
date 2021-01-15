@@ -9,7 +9,7 @@ public class TypeTemplate {
         this.type = type;
     }
 
-    public String GetType(){
+    public String getType(){
         return type;
     }
 
