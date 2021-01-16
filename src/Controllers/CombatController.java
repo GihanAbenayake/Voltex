@@ -1,6 +1,8 @@
 package Controllers;
 
+import Controllers.SubControllers.CSC;
 import Controllers.SubControllers.ISC;
+import Controllers.SubControllers.MSC;
 import Controllers.SubControllers.TSC;
 import Units.Fleet;
 
@@ -9,6 +11,8 @@ public class CombatController {
     private VisualController AssignedController;
     private ISC initiativeController;
     private TSC turnController;
+    private MSC movementController;
+    private CSC combatController;
     public CombatController(VisualController VISCON){
         this.setAssignedController(VISCON);
     }
@@ -20,6 +24,8 @@ public class CombatController {
     public void generateSubControllers(){
         initiativeController = new ISC(this);
         turnController = new TSC(this);
+        movementController = new MSC(this);
+        combatController = new CSC(this);
     }
     public Fleet getAllyFleet() {
         return AllyFleet;
@@ -59,5 +65,21 @@ public class CombatController {
 
     public void setTurnController(TSC turnController) {
         this.turnController = turnController;
+    }
+
+    public MSC getMovementController() {
+        return movementController;
+    }
+
+    public void setMovementController(MSC movementController) {
+        this.movementController = movementController;
+    }
+
+    public CSC getCombatController() {
+        return combatController;
+    }
+
+    public void setCombatController(CSC combatController) {
+        this.combatController = combatController;
     }
 }

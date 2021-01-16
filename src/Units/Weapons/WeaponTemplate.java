@@ -92,8 +92,25 @@ public class WeaponTemplate {
         WeaponClass = weaponClass;
     }
 
-    public String getWeaponRange() {
-        return WeaponRange;
+    public int getWeaponRange() {
+
+        switch(WeaponRange){
+            case "Close Combat" : {
+                return 0;
+            }
+            case "Short" : {
+                return 1;
+            }
+            case "Medium" : {
+                return 2;
+            }
+            case "Long" : {
+                return 3;
+            }
+            default:
+                System.out.println(this.getWeaponName() + " doesnt have a range assigned to it. FIX THIS");
+                return 3;
+        }
     }
 
     public void setWeaponRange(String weaponRange) {
@@ -188,5 +205,8 @@ public class WeaponTemplate {
 
     public void setMaximumAmmunition(int maximumAmmunition) {
         MaximumAmmunition = maximumAmmunition;
+    }
+    public void setMountedVehicle(UnitTemplate Ship){
+        MountedVehicle = Ship;
     }
 }

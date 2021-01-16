@@ -50,6 +50,7 @@ public class BO_ZweiHandler extends UnitTemplate {
         MainBomb.AttachWeapon(this);
         AttachedWeapons[0] = MainBomb;
         ZH.setWeapons(AttachedWeapons);
+        MainBomb.setMountedVehicle(ZH);
         MainBomb.setWeaponDesc("\n\bSwordfish Light Bomb\b\n\nSwordfish's are the lightest bombs on the market when it comes to damage and ammunition capacity. Each craft in a squadron can hold two of these allowing for six runs on average. Upon deployment, The warheads gravity assistance syncs with the deploying crafts systems and directs the bomb 'downwards' away from its deployer and towards the enemy. As this is a bomb, it can only be used against Frigate and higher class vessels.\n Rolls " + this.getWeapons()[0].getNumberOfDmgDice() + " " + this.getWeapons()[0].getDmgDice().GetDice() + " Damage dice.");
     }
 

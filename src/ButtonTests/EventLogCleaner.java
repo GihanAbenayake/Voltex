@@ -29,7 +29,7 @@ public class EventLogCleaner implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        if(Event.getLineCount() >= 29){
+        if(Event.getLineCount() >= 35){
             Event.setText(" Log was Cleared");
             Container.validate();
         }
@@ -38,7 +38,7 @@ public class EventLogCleaner implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-        if(Event.getLineCount() >= 29){
+        if(Event.getLineCount() >= 35){
             Event.setText(" Log was Cleared");
             Container.validate();
         }

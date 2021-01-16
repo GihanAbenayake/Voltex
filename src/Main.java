@@ -17,7 +17,7 @@ public class Main {
         FleCont.GenerateFighterFleet("AllyFleet",5);
         FleCont.getFleetList().get(0).setAlly();
         //Generate a fleet of five Zweihandlers
-        FleCont.GenerateCorvetteFleet("Enemy Fleet",5);
+        FleCont.GenerateFighterFleet("Enemy Fleet",5);
         FleCont.getFleetList().get(1).setEnemy();
 
         CombatController ConCont = new CombatController(VisCont);
@@ -33,6 +33,9 @@ public class Main {
 
         //Turn Start
         ConCont.getTurnController().CombatStart();
+
+        FleCont.getFleetList().get(1).getSpecificTypeInFleet("Corvette");
+
 
 
     }

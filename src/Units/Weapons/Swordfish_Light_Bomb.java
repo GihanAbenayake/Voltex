@@ -14,7 +14,8 @@ public class Swordfish_Light_Bomb extends WeaponTemplate {
         this.setWeaponRange("Close Combat");
         this.setNumberOfShotsFired(10);
         this.setDmgDice(new D20());
-        this.setModifiers(new String[] {"Small Weapon", "Sub Weapon", "Has Ammo"});
+        this.setNumberOfDmgDice(12);
+        this.setModifiers(new String[] {"Small Weapon", "Sub Weapon", "Has Ammo","Sundering","Anti-Frigate","Anti-Cruiser"});
         }
 
     @Override

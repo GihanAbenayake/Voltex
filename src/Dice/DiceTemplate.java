@@ -21,35 +21,18 @@ public class DiceTemplate {
         return x;
     }
 
-    public int RollMultipleResults(int[] NumberOfDiceRolled){
-
-        int TotalResult = 0;
-        for(int x = 0; x < NumberOfDiceRolled.length; x++){
-            TotalResult = TotalResult + x;
-        }
-        return TotalResult;
-    }
-
-    public int[] RollMultiple(int NumberOfDiceRolled){
-        Random Rand = new Random();
-        int[] DiceArray = new int[NumberOfDiceRolled];
-        for(int x = 0; x < NumberOfDiceRolled;x++){
-            int roll = Rand.nextInt(faces) + 1;
-            DiceArray[x] = roll;
-        }
-        //Debug for Multiple rolls
-        for(int x = 0; 0 > DiceArray.length; x++){
-            System.out.println("Dice " + (x+1) +":");
-        }
-        return DiceArray;
-    }
 
     public int RollMultipleCombinedResults(int NumberOfDiceRolled){
-       return RollMultipleResults(RollMultiple(NumberOfDiceRolled));
-
+       int Result = 0;
+       for(int x = 0; x < NumberOfDiceRolled; x++){
+           Result = Result + this.Roll();
+       }
+       return Result;
     }
 
     public void setFaces(int faces){
         this.faces = faces;
     }
+
+    public int getFaces() { return  faces;}
 }

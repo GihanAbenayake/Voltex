@@ -50,6 +50,7 @@ public class FI_Rapier extends UnitTemplate {
         Rapier.setWeapons(Weapons);
         Weapons[0] = Mainguns;
         Weapons[0].setWeaponDesc("\n\bLight Autocannon\b\n\nThe Light AutoCannon is the most basic of weapons generally mounted on fighters. This single barrel weapon fires a burst of five bursts of high explosive anti-fighter shrapnel rounds at high velocity towards its target and shreds through fighters though it struggles against armoured bombers.\n Rolls " + this.getWeapons()[0].getNumberOfDmgDice() + " " + this.getWeapons()[0].getDmgDice().GetDice() + " Damage dice.");
+        Weapons[0].setMountedVehicle(Rapier);
     }
 
     @Override

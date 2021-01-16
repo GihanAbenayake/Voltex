@@ -35,6 +35,9 @@ public class UnitTemplate {
     //Current Size of the Unit, user for dice scaling
     private int CurrentSquadSize;
 
+    //Current status of the Squadron/Unit
+    private String Status = "Active";
+
     //Array containing all the Weapons of the craft
     private WeaponTemplate[] Weapons;
 
@@ -57,8 +60,8 @@ public class UnitTemplate {
     //Combat Action that is qued;
     private String CombatAction;
 
-    //Sets status as an Ally (0 = Enemy, 1 = Player)
-    private int Ally;
+    //Sets status as an Ally (false = Enemy, true = Player)
+    private Boolean Ally;
 
     public UnitTemplate(String UnitID, String UnitName){
         this.ID = UnitID;
@@ -166,6 +169,9 @@ public class UnitTemplate {
     }
 
     public String getUnitDesc() {
+        if(UnitDesc.isEmpty() || UnitDesc == null){
+            return this.getName()+"\n\nUnit description not set yet";
+        }else
         return UnitDesc;
     }
 
@@ -174,19 +180,31 @@ public class UnitTemplate {
     }
 
     public int getCurrentRange() {
-        return currentRange;
+        switch (currentRange){
+            case -1 : {
+                return 1;
+            }
+            case -2 : {
+                return 2;
+            }
+            case -3 : {
+                return 3;
+            }
+            default:
+                return 4;
+        }
     }
 
     public void setCurrentRange(int currentRange) {
         this.currentRange = currentRange;
     }
 
-    public int getAlly() {
+    public boolean isAlly() {
         return Ally;
     }
 
-    public void setAlly(int ally) {
-        Ally = ally;
+    public void setAlly(boolean status) {
+        Ally = status;
     }
 
     public int getCombatInitiative() {
@@ -198,6 +216,10 @@ public class UnitTemplate {
     }
 
     public String getMovementAction() {
+        if(MovementAction == null||MovementAction.isEmpty()  ){
+            return "Nothing";
+        }else
+
         return MovementAction;
     }
 
@@ -206,6 +228,9 @@ public class UnitTemplate {
     }
 
     public String getCombatAction() {
+        if(CombatAction == null ||CombatAction.isEmpty() ){
+            return "Nothing";
+        }else
         return CombatAction;
     }
 
@@ -215,5 +240,23 @@ public class UnitTemplate {
 
     public TypeTemplate getType(){
         return Type;
+    }
+
+    public String getCombatDesc(){
+        String CombatDesc = this.getUnitDesc() + "\n"
+                +"Planned Movement Action: " + this.getMovementAction()
+                +"Planned Combat Action: " + this.getCombatAction();
+
+        return CombatDesc;
+
+    }
+
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
     }
 }

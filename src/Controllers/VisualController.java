@@ -2,6 +2,8 @@ package Controllers;
 
 import Visuals.MainFrame;
 
+import javax.swing.*;
+
 public class VisualController {
     MainFrame MainVisualFrame = new MainFrame();
 
@@ -11,5 +13,9 @@ public class VisualController {
 
     public void DisplayText(String Text){
         MainVisualFrame.getEventLog().append(Text);
+    }
+
+    public JTextArea GetEventLog(){
+        return MainVisualFrame.getEventLog();
     }
 }

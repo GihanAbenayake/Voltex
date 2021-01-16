@@ -1,7 +1,12 @@
 package Controllers.SubControllers;
 
 import Controllers.CombatController;
+import Dice.D2;
+import Dice.DiceTemplate;
+import Units.Humanity.Bombers.BO_ZweiHandler;
+import Units.Humanity.Fighters.FI_Rapier;
 import Units.UnitTemplate;
+import Units.UnitTypes.Fighter;
 
 //Turn Sub Controller
 public class TSC extends CombatSubControllerTemplate {
@@ -13,7 +18,7 @@ public class TSC extends CombatSubControllerTemplate {
     public void CombatStart(){
 
         //Range Assignment
-        for(int x = 0; x < this.getAssignedController().getInitiativeController().getInitiativeOrder().size(); x++){
+        for(int x = 0; x < 1; x++){
             UnitTemplate Ship = this.getAssignedController().getInitiativeController().getInitiativeOrder().get(x);
             switch(Ship.getType().getType()){
                 case "Fighter":
@@ -71,7 +76,14 @@ public class TSC extends CombatSubControllerTemplate {
                 }
 
 
+
+
+
+
             }
+
+            TurnStart();
+            TurnEnd();
         }
 
 
@@ -80,9 +92,19 @@ public class TSC extends CombatSubControllerTemplate {
     public void TurnStart(){
 
         //For loop for turns
-        for(int x = 0; x < this.getAssignedController().getInitiativeController().getInitiativeOrder().size();x++){
-
+        for(int x = 0; x < 1;x++) {
+            int a = x;
+            UnitTemplate ActingUnit = this.getAssignedController().getInitiativeController().getInitiativeOrder().get(x);
+            BO_ZweiHandler TESTINGBOMBER = new BO_ZweiHandler("TB", "TestingBomber");
+            this.getAssignedController().getCombatController().FireWeapon(ActingUnit.getWeapons()[0],TESTINGBOMBER );
         }
+}
 
-    }
+public void TurnEnd(){
+    UnitTemplate a = this.getAssignedController().getInitiativeController().getInitiativeOrder().get(0);
+    this.getAssignedController().getCombatController().setActor(a);
+    this.getAssignedController().getMovementController().setActor(a);
+    this.getAssignedController().getMovementController().MovementActionCommencement();
+    this.getAssignedController().getCombatController().CombatActionCommences();
+}
 }

@@ -20,6 +20,7 @@ public class FleetController {
 
       for(int x = 0;x < RequiredFighterAmount; x++){
          NewFighterFleet[x] = new FI_Rapier("Rapier" + x,"Rapier " + x);
+         NewFighterFleet[x].getWeapons();
       }
 
       Fleet FighterFleet = new Fleet(FleetName,NewFighterFleet);
